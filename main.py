@@ -1,17 +1,26 @@
 #!/usr/bin/env python
-import tests #unit tests
+import tests #our unit tests
 
 def to_roman(number):
-    q, r = divmod(number, 5)
-    if number == 8:
-        return "VIII"
-    if number == 5:
-        return "V"
-    if number == 4:
-        return "IV"
-    if number < 4:
-        return number * "I"
+	strRomanValue = "" 
+
+	iQuotient, iRemainder = divmod(number, 10)
+	if iQuotient >= 1:
+		strRomanValue = iQuotient*"X"
+	elif iRemainder+1 == 10:
+		strRomanValue = "IX"
+	if iRemainder+1 < 10:
+		iQuotient, iRemainder = divmod(iRemainder, 5)
+
+	if iQuotient == 1:
+		strRomanValue = strRomanValue + "V"
+	elif iRemainder+1 == 5:
+		strRomanValue = strRomanValue + "IV"
+	if iRemainder+1 < 5:
+		strRomanValue =  strRomanValue + iRemainder * "I"
+
+	return strRomanValue
 
 if __name__ == "__main__":
-	x=tests.TestProgram
-	x(module='tests') #run our tests
+	runTests=tests.TestProgram
+	runTests(module='tests') #run our tests

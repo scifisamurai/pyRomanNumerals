@@ -1,6 +1,4 @@
-#from unittest import TestCase, main
-from unittest import TestCase, TestProgram
-#from unittest import TestCase #testing framework
+from unittest import TestCase, TestProgram #unit testing framework
 import main #code being testing
 
 class TestConvertToRoman(TestCase):
@@ -22,10 +20,25 @@ class TestConvertToRoman(TestCase):
 	def test_convert_8_to_roman(self):
 		self.assertEquals("VIII",main.to_roman(8))       
 
-#def doIt(self):
+	def test_convert_9_to_roman(self):
+		self.assertEquals("IX",main.to_roman(9))       
+
+	def test_convert_12_to_roman(self):
+		self.assertEquals("XII",main.to_roman(12))       
+
+	def test_convert_14_to_roman(self):
+		self.assertEquals("XIV",main.to_roman(14))       
+
+	def test_convert_25_to_roman(self):
+		self.assertEquals("XXV",main.to_roman(25))       
+
+	def test_convert_44_to_roman(self):
+		self.assertEquals("XXXXIV",main.to_roman(44))       
+
+	def test_convert_48_to_roman(self):
+		self.assertEquals("XXXXVIII",main.to_roman(48))       
+
     
 if __name__ == "__main__":
-	#doIt
-	c=TestProgram
-	c()
-#	main()
+	runTests=TestProgram
+	runTests()
